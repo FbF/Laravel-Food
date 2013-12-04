@@ -33,6 +33,7 @@ return array(
 	'products' => array(
 		'views' => array(
 			'view'  => 'laravel-food::products.view',
+			'stockists'  => 'laravel-food::products.stockists',
 		),
 		'images' => array(
 			'main' => array(
