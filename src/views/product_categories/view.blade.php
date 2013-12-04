@@ -1,6 +1,7 @@
 @extends ('layouts.master')
 
 @section ('content')
+	@include ('laravel-food::partials.product_categories_nav')
 	<div class="item-category item-category__product-categories">
 		<h1 class="item-category--heading">
 			@if (Config::get('laravel-food::fields.brand_message_heading_prefix'))
