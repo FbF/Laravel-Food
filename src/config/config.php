@@ -17,8 +17,8 @@ return array(
 
 	'product_categories' => array(
 		'views' => array(
-			'index' => 'laravel-food::product_categories_index',
-			'view'  => 'laravel-food::product_category_view',
+			'index' => 'laravel-food::product_categories.index',
+			'view'  => 'laravel-food::product_categories.view',
 		),
 		'images' => array(
 			'main' => array(
@@ -32,7 +32,7 @@ return array(
 
 	'products' => array(
 		'views' => array(
-			'view'  => 'laravel-food::product_view',
+			'view'  => 'laravel-food::products.view',
 		),
 		'images' => array(
 			'main' => array(
@@ -46,8 +46,8 @@ return array(
 
 	'recipes' => array(
 		'views' => array(
-			'index'  => 'laravel-food::recipes_index',
-			'view'  => 'laravel-food::recipe_view',
+			'index'  => 'laravel-food::recipes.index',
+			'view'  => 'laravel-food::recipes.view',
 		),
 		'images' => array(
 			'main' => array(

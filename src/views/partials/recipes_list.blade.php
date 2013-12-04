@@ -2,7 +2,7 @@
 	<ul>
 		@foreach ($recipes as $recipe)
 		<li>
-			<a href="{{ $recipe->otherRecipe2->getUrl() }}" title="{{ $recipe->otherRecipe2->name }}">
+			<a href="{{ $recipe->getUrl() }}" title="{{ $recipe->name }}">
 				<p>{{ $recipe->name }}</p>
 				{{ $recipe->getMainImageThumbnail() }}
 				<p>{{ trans('laravel-food::messages.recipes.details.view_recipe') }}</p>

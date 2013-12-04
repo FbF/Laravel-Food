@@ -36,7 +36,7 @@
 	@if ($recipe->otherRecipe1 || $recipe->otherRecipe2)
 		<div class="other-recipes">
 			<h2>{{ trans('laravel-food::messages.recipes.details.other_recipes') }}</h2>
-			@include ('laravel-food::partials.recipes_list', array('recipes', array($recipe->otherRecipe1, $recipe->otherRecipe2)))
+			@include ('laravel-food::partials.recipes_list', array('recipes' => array($recipe->otherRecipe1, $recipe->otherRecipe2)))
 		</div>
 	@endif
 @stop

@@ -4,7 +4,8 @@ class RecipesController extends \BaseController {
 
 	public function indexByCategory($recipeCategorySlug)
 	{
-		$recipes = Recipe::join('fbf_food_recipe_categories', 'fbf_food_recipes.recipe_category_id', '=', 'fbf_food_recipe_categories.id')
+		$recipes = Recipe::select('fbf_food_recipes.*', 'fbf_food_recipe_categories.name as recipe_category_name', 'fbf_food_recipe_categories.slug as recipe_category_slug')
+			->join('fbf_food_recipe_categories', 'fbf_food_recipes.recipe_category_id', '=', 'fbf_food_recipe_categories.id')
 			->where('fbf_food_recipe_categories.slug', '=', $recipeCategorySlug)
 			->live()
 			->paginate();
