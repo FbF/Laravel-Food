@@ -1,6 +1,7 @@
 {
     "name": "fbf/laravel-food",
-    "description": "",
+    "description": "A Laravel 4 Package for websites for manufacturers of food based products, with multiple product categories, products, recipes and stockists",
+    "license": "MIT",
     "authors": [
         {
             "name": "Neil Crookes",
