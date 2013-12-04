@@ -16,5 +16,5 @@ Route::get(Config::get('laravel-food::uri.recipes').'/{recipeCategorySlug}/{reci
 
 Route::get(Config::get('laravel-food::uri.stockists'), 'Fbf\LaravelFood\ProductsController@stockists');
 
-View::composer('laravel-food::recipes_index', 'Fbf\LaravelFood\RecipeCategoriesNavComposer');
-View::composer('laravel-food::recipes_index', 'Fbf\LaravelFood\RecipeProductsTagCloudComposer');
+View::composer('laravel-food::recipes.index', 'Fbf\LaravelFood\RecipeCategoriesNavComposer');
+View::composer('laravel-food::recipes.index', 'Fbf\LaravelFood\RecipeProductsTagCloudComposer');
