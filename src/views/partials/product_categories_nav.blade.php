@@ -1,7 +1,7 @@
-<div class="product-categories-nav">
+<div class="section-nav">
 	<ul>
 		@foreach ($productCategories as $productCategory)
-			<li{{ Request::url() == $productCategory->getUrl() ? ' class="selected"' : '' }}>
+			<li{{ Request::url() == $productCategory->getUrl() ? ' class="section-nav__selected"' : '' }}>
 				@if (Request::url() == $productCategory->getUrl())
 					<span>{{ $productCategory->name }}</span>
 				@else
