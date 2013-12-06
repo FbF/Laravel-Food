@@ -1,4 +1,4 @@
-<div class="item-list">
+<div class="item-list item-list__categories">
 	<ul>
 		@foreach ($productCategories as $productCategory)
 		<li class="item-list--item">
