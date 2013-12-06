@@ -122,17 +122,8 @@ return array(
 			'title' => 'Stockist Image (The image that represents all products in this category on the stockists page)',
 			'type' => 'image',
 			'naming' => 'random',
-			'location' => public_path() . Config::get('laravel-food::product_categories.images.stockist.original_dir'),
+			'location' => public_path() . Config::get('laravel-food::images.product_categories.stockist.original.dir'),
 			'size_limit' => 5,
-			'sizes' => array(
-				array(
-					Config::get('laravel-food::images.product_categories.stockist.resized.width'),
-					Config::get('laravel-food::images.product_categories.stockist.resized.height'),
-					'crop',
-					public_path() . Config::get('laravel-food::images.product_categories.stockist.resized.dir'),
-					100
-				),
-			),
 			'visible' => function($model)
 				{
 					return Config::get('laravel-food::fields.product_categories.stockist_image');

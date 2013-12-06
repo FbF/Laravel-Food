@@ -21,7 +21,7 @@ class ProductCategory extends BaseModel {
 
 	public function products()
 	{
-		return $this->hasMany('Product');
+		return $this->hasMany('Fbf\LaravelFood\Product')->orderBy('name');
 	}
 
 	/**
@@ -42,7 +42,21 @@ class ProductCategory extends BaseModel {
 		$html = '<img src="'.\Config::get('laravel-food::images.product_categories.main.resized.dir').$this->main_image.'"';
 		$html .= ' width="'.\Config::get('laravel-food::images.product_categories.main.resized.width').'"';
 		$html .= ' height="'.\Config::get('laravel-food::images.product_categories.main.resized.height').'"';
-		$html .= ' alt="'.$this->name.'"';
+		$html .= ' alt="'.$this->name.'" />';
+		return $html;
+	}
+
+	public function getStockistImageOriginal()
+	{
+		if (empty($this->stockist_image))
+		{
+			return null;
+		}
+		$relativePathToFile = \Config::get('laravel-food::images.product_categories.stockist.original.dir').$this->stockist_image;
+		$html = '<img src="'.$relativePathToFile.'"';
+		list($width, $height, $type, $attr) = getimagesize(public_path() . $relativePathToFile);
+		$html .= $attr;
+		$html .= ' alt="'.$this->name.'" />';
 		return $html;
 	}
 

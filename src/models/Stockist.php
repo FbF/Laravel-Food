@@ -19,10 +19,10 @@ class Stockist extends BaseModel {
 		{
 			return $this->name;
 		}
-		$html = '<img src="'.\Config::get('laravel-food::stockists.logo.originals_dir').$this->logo.'"';
-		$html .= ' width="'.\Config::get('laravel-food::stockists.logo.originals_width').'"';
-		$html .= ' height="'.\Config::get('laravel-food::stockists.logo.originals_height').'"';
-		$html .= ' alt="'.$this->name.'"';
+		$html = '<img src="'.\Config::get('laravel-food::images.stockists.logo.resized.dir').$this->logo.'"';
+		$html .= ' width="'.\Config::get('laravel-food::images.stockists.logo.resized.width').'"';
+		$html .= ' height="'.\Config::get('laravel-food::images.stockists.logo.resized.height').'"';
+		$html .= ' alt="'.$this->name.'" />';
 		return $html;
 	}
 

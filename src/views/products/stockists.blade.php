@@ -1,7 +1,6 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: neilc
- * Date: 04/12/13
- * Time: 10:37
- */ 
+@extends ('layouts.master')
+
+@section ('content')
+	@include ('laravel-food::partials.stockists_table')
+	@include ('laravel-food::partials.stockists_list')
+@stop
