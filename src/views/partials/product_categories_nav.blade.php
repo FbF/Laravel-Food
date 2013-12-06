@@ -1,5 +1,14 @@
 <div class="section-nav">
-	<ul>
+    <form action="" method="post" class="section-nav--dropdown">
+        <select>
+            @foreach ($productCategories as $productCategory)
+    			<option value="{{ $productCategory->getUrl() }}"{{ Request::url() == $productCategory->getUrl() ? ' selected="selected"' : '' }}>{{ $productCategory->name }}</select>
+    		@endforeach
+        </select>
+        <input type="submit" value="Go" />
+    </form>
+    
+	<ul class="section-nav--list">
 		@foreach ($productCategories as $productCategory)
 			<li{{ Request::url() == $productCategory->getUrl() ? ' class="section-nav__selected"' : '' }}>
 				@if (Request::url() == $productCategory->getUrl())
