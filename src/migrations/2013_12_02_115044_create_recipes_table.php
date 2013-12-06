@@ -26,8 +26,8 @@ class CreateRecipesTable extends Migration {
 			$table->text('nutritional_info');
 			$table->text('ingredients');
 			$table->text('method');
-			$table->integer('other_recipe_1');
-			$table->integer('other_recipe_2');
+			$table->integer('other_recipe_1')->nullable()->default(null);
+			$table->integer('other_recipe_2')->nullable()->default(null);
 			$table->text('page_title');
 			$table->text('meta_description');
 			$table->text('meta_keywords');

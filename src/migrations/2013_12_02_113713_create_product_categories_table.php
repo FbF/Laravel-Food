@@ -21,6 +21,7 @@ class CreateProductCategoriesTable extends Migration {
 			$table->text('brand_message_heading_prefix');
 			$table->text('brand_message');
 			$table->text('description');
+			$table->tinyInteger('order');
 			$table->string('stockist_image');
 			$table->text('page_title');
 			$table->text('meta_description');

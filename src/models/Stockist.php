@@ -10,7 +10,7 @@ class Stockist extends BaseModel {
 
 	public function products()
 	{
-		return $this->belongsToMany('Product', 'fbf_food_product_stockist');
+		return $this->belongsToMany('Fbf\LaravelFood\Product', 'fbf_food_product_stockist');
 	}
 
 	public function getLogo()

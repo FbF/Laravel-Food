@@ -17,6 +17,9 @@ class CreateStockistsTable extends Migration {
 			$table->increments('id');
 			$table->string('name');
 			$table->string('logo');
+			$table->tinyInteger('order');
+			$table->enum('status', array('DRAFT','APPROVED'))->default('DRAFT');
+			$table->dateTime('published_date');
 			$table->timestamps();
 		});
 	}

@@ -19,6 +19,7 @@ class CreateRecipeCategoriesTable extends Migration {
 			$table->string('slug');
 			$table->string('main_image');
 			$table->text('description');
+			$table->tinyInteger('order');
 			$table->text('page_title');
 			$table->text('meta_description');
 			$table->text('meta_keywords');

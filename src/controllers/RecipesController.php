@@ -4,13 +4,39 @@ class RecipesController extends \BaseController {
 
 	public function indexByCategory($recipeCategorySlug)
 	{
-		$recipes = Recipe::select('fbf_food_recipes.*', 'fbf_food_recipe_categories.name as recipe_category_name', 'fbf_food_recipe_categories.slug as recipe_category_slug')
+		$recipeCategory = RecipeCategory::live()->where('slug', '=', $recipeCategorySlug)->first();
+
+		if (!$recipeCategory)
+		{
+			\App::abort(404);
+		}
+
+		$recipes = Recipe::select('fbf_food_recipes.*')
 			->join('fbf_food_recipe_categories', 'fbf_food_recipes.recipe_category_id', '=', 'fbf_food_recipe_categories.id')
 			->where('fbf_food_recipe_categories.slug', '=', $recipeCategorySlug)
 			->live()
 			->paginate();
 
-		return \View::make(\Config::get('laravel-food::recipes.views.index'))->with(compact('recipes'));
+		return \View::make(\Config::get('laravel-food::views.recipes.index'))->with(compact('recipeCategory', 'recipes'));
+	}
+
+	public function indexByProduct($productSlug)
+	{
+		$product = Product::live()->where('slug', '=', $productSlug)->first();
+
+		if (!$product)
+		{
+			\App::abort(404);
+		}
+
+		$recipes = Recipe::select('fbf_food_recipes.*')
+			->join('fbf_food_product_recipe', 'fbf_food_recipes.id', '=', 'fbf_food_product_recipe.recipe_id')
+			->join('fbf_food_products', 'fbf_food_product_recipe.product_id', '=', 'fbf_food_products.id')
+			->where('fbf_food_products.slug', '=', $productSlug)
+			->live()
+			->paginate();
+
+		return \View::make(\Config::get('laravel-food::views.recipes.index'))->with(compact('product', 'recipes'));
 	}
 
 	public function view($recipeCategorySlug, $recipeSlug)
@@ -38,7 +64,7 @@ class RecipesController extends \BaseController {
 
 		$product = current(current($recipe->products));
 
-		return \View::make(\Config::get('laravel-food::recipes.views.view'))->with(compact('recipe', 'product'));
+		return \View::make(\Config::get('laravel-food::views.recipes.view'))->with(compact('recipe', 'product'));
 	}
 
 }

@@ -40,7 +40,7 @@ return array(
 			'ingredients' => 'Ingredients',
 			'method' => 'Method',
 			'other_recipes' => 'Here are some other recipes to whet your appetite...',
-			'view_product' => 'View :name',
+			'view_product' => 'View :product',
 			'view_recipe' => 'View recipe',
 		),
 	),

@@ -8,6 +8,17 @@ class Recipe extends BaseModel {
 	 */
 	protected $table = 'fbf_food_recipes';
 
+	/**
+	 * Used for Cviebrock/EloquentSluggable
+	 * @var array
+	 */
+	public static $sluggable = array(
+		'build_from' => 'name',
+		'save_to' => 'slug',
+		'separator' => '-',
+		'unique' => true,
+	);
+
 	public function recipeCategory()
 	{
 		return $this->belongsTo('Fbf\LaravelFood\RecipeCategory');
@@ -37,29 +48,16 @@ class Recipe extends BaseModel {
 		return \URL::action('Fbf\LaravelFood\RecipesController@view', array('recipeCategorySlug' => $this->recipeCategory->slug, 'recipeSlug' => $this->slug));
 	}
 
-	public function getMainImage()
+	public function getMainImage($size)
 	{
 		if (empty($this->main_image))
 		{
 			return null;
 		}
-		$html = '<img src="'.\Config::get('laravel-food::recipes.images.main.originals_dir').$this->main_image.'"';
-		$html .= ' width="'.\Config::get('laravel-food::recipes.images.main.originals_width').'"';
-		$html .= ' height="'.\Config::get('laravel-food::recipes.images.main.originals_height').'"';
-		$html .= ' alt="'.$this->name.'"';
-		return $html;
-	}
-
-	public function getMainImageThumbnail()
-	{
-		if (empty($this->main_image))
-		{
-			return null;
-		}
-		$html = '<img src="'.\Config::get('laravel-food::recipes.images.main.thumbnails_dir').$this->main_image.'"';
-		$html .= ' width="'.\Config::get('laravel-food::recipes.images.main.thumbnails_width').'"';
-		$html .= ' height="'.\Config::get('laravel-food::recipes.images.main.thumbnails_height').'"';
-		$html .= ' alt="'.$this->name.'"';
+		$html = '<img src="'.\Config::get('laravel-food::images.recipes.main.'.$size.'.dir').$this->main_image.'"';
+		$html .= ' width="'.\Config::get('laravel-food::images.recipes.main.'.$size.'.width').'"';
+		$html .= ' height="'.\Config::get('laravel-food::images.recipes.main.'.$size.'.height').'"';
+		$html .= ' alt="'.$this->name.'" />';
 		return $html;
 	}
 

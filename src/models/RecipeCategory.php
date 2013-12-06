@@ -8,6 +8,17 @@ class RecipeCategory extends BaseModel {
 	 */
 	protected $table = 'fbf_food_recipe_categories';
 
+	/**
+	 * Used for Cviebrock/EloquentSluggable
+	 * @var array
+	 */
+	public static $sluggable = array(
+		'build_from' => 'name',
+		'save_to' => 'slug',
+		'separator' => '-',
+		'unique' => true,
+	);
+
 	public function recipes()
 	{
 		return $this->hasMany('Recipe');
@@ -16,6 +27,19 @@ class RecipeCategory extends BaseModel {
 	public function getUrl()
 	{
 		return \URL::action('Fbf\LaravelFood\RecipesController@indexByCategory', array('recipeCategorySlug' => $this->slug));
+	}
+
+	public function getMainImageResized()
+	{
+		if (empty($this->main_image))
+		{
+			return null;
+		}
+		$html = '<img src="'.\Config::get('laravel-food::images.recipe_categories.main.resized.dir').$this->main_image.'"';
+		$html .= ' width="'.\Config::get('laravel-food::images.recipe_categories.main.resized.width').'"';
+		$html .= ' height="'.\Config::get('laravel-food::images.recipe_categories.main.resized.height').'"';
+		$html .= ' alt="'.$this->name.'"';
+		return $html;
 	}
 
 }

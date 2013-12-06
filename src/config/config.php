@@ -9,54 +9,30 @@ return array(
 	),
 
 	'fields' => array(
-		'main_image' => true,
-		'brand_message_heading_prefix' => true,
-		'brand_message' => true,
-		'stockist_image' => true,
+		'product_categories' => array(
+			'main_image' => true,
+			'brand_message_heading_prefix' => true,
+			'brand_message' => true,
+			'stockist_image' => true,
+		),
 	),
 
-	'product_categories' => array(
-		'views' => array(
+	'views' => array(
+		'product_categories' => array(
 			'index' => 'laravel-food::product_categories.index',
 			'view'  => 'laravel-food::product_categories.view',
 		),
-		'images' => array(
-			'main' => array(
-				'originals_dir' => '/uploads/packages/fbf/laravel-food/product_categories/originals/',
-				'thumbnails_dir' => '/uploads/packages/fbf/laravel-food/product_categories/thumbnails/',
-				'thumbnails_width' => '200',
-				'thumbnails_height' => '150',
-			),
-		),
-	),
-
-	'products' => array(
-		'views' => array(
+		'products' => array(
 			'view'  => 'laravel-food::products.view',
 			'stockists'  => 'laravel-food::products.stockists',
 		),
-		'images' => array(
-			'main' => array(
-				'originals_dir' => '/uploads/packages/fbf/laravel-food/product_categories/originals/',
-				'thumbnails_dir' => '/uploads/packages/fbf/laravel-food/product_categories/thumbnails/',
-				'thumbnails_width' => '200',
-				'thumbnails_height' => '150',
-			),
+		'recipe_categories' => array(
+			'index'  => 'laravel-food::recipe_categories.index',
 		),
-	),
-
-	'recipes' => array(
-		'views' => array(
+		'recipes' => array(
 			'index'  => 'laravel-food::recipes.index',
 			'view'  => 'laravel-food::recipes.view',
 		),
-		'images' => array(
-			'main' => array(
-				'originals_dir' => '/uploads/packages/fbf/laravel-food/recipes/originals/',
-				'thumbnails_dir' => '/uploads/packages/fbf/laravel-food/recipes/thumbnails/',
-				'thumbnails_width' => '200',
-				'thumbnails_height' => '150',
-			),
-		),
 	),
+
 );

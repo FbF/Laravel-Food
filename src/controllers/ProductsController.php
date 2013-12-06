@@ -25,7 +25,7 @@ class ProductsController extends \BaseController {
 			\App::abort(404);
 		}
 
-		return \View::make(\Config::get('laravel-food::products.views.view'))->with(compact('product'));
+		return \View::make(\Config::get('laravel-food::views.products.view'))->with(compact('product'));
 	}
 
 	public function stockists()

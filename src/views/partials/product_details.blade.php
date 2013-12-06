@@ -1,7 +1,7 @@
-<div class="item item__product">
+<div>
 	<h1>{{ $product->name }}</h1>
-	{{ $product->getMainImage() }}
-	<p class="description">
+	{{ $product->getMainImage('resized') }}
+	<p>
 		{{ $product->description }}
 	</p>
 	@include ('laravel-food::product_data')

@@ -17,7 +17,7 @@
 			</li>
 		</ul>
 	</div>
-	{{ $recipe->getMainImage() }}
+	{{ $recipe->getMainImage('large') }}
 	<p class="nutritional_info">
 		{{ trans('laravel-food::messages.recipes.details.per_serving') }}
 		{{ $recipe->nutritional_info }}
@@ -30,13 +30,37 @@
 		<h2>{{ trans('laravel-food::messages.recipes.details.method') }}</h2>
 		<p>{{ $recipe->method }}</p>
 	</div>
-	<div class="product">
-		{{ $product->getMainImageThumbnail() }}
-	</div>
+	@if ($product)
+		<div class="product">
+			<a href="{{ $product->getUrl() }}">
+				{{ $product->getMainImage('thumbnail') }}
+				{{ trans('laravel-food::messages.recipes.details.view_product', array('product' => $product->name)) }}
+			</a>
+		</div>
+	@endif
 	@if ($recipe->otherRecipe1 || $recipe->otherRecipe2)
 		<div class="other-recipes">
 			<h2>{{ trans('laravel-food::messages.recipes.details.other_recipes') }}</h2>
-			@include ('laravel-food::partials.recipes_list', array('recipes' => array($recipe->otherRecipe1, $recipe->otherRecipe2)))
+			<ul>
+				@if ($recipe->otherRecipe1)
+				<li>
+					<a href="{{ $recipe->otherRecipe1->getUrl() }}" title="{{ $recipe->otherRecipe1->name }}">
+						{{ $recipe->otherRecipe1->getMainImage('medium') }}
+						<p>{{ $recipe->otherRecipe1->name }}</p>
+						<p>{{ trans('laravel-food::messages.recipes.details.view_recipe') }}</p>
+					</a>
+				</li>
+				@endif
+				@if ($recipe->otherRecipe2)
+				<li>
+					<a href="{{ $recipe->otherRecipe2->getUrl() }}" title="{{ $recipe->otherRecipe2->name }}">
+						{{ $recipe->otherRecipe2->getMainImage('medium') }}
+						<p>{{ $recipe->otherRecipe2->name }}</p>
+						<p>{{ trans('laravel-food::messages.recipes.details.view_recipe') }}</p>
+					</a>
+				</li>
+				@endif
+			</ul>
 		</div>
 	@endif
 @stop
