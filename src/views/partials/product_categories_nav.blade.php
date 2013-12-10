@@ -1,5 +1,5 @@
 <div class="section-nav">
-    <form action="" method="post" class="section-nav--dropdown">
+    <form action="" method="post" class="section-nav--dropdown js-form-nav">
         <select>
             @foreach ($productCategories as $productCategory)
     			<option value="{{ $productCategory->getUrl() }}"{{ Request::url() == $productCategory->getUrl() ? ' selected="selected"' : '' }}>{{ $productCategory->name }}</option>
