@@ -2,7 +2,7 @@
     <form action="" method="post" class="section-nav--dropdown">
         <select>
             @foreach ($productCategories as $productCategory)
-    			<option value="{{ $productCategory->getUrl() }}"{{ Request::url() == $productCategory->getUrl() ? ' selected="selected"' : '' }}>{{ $productCategory->name }}</select>
+    			<option value="{{ $productCategory->getUrl() }}"{{ Request::url() == $productCategory->getUrl() ? ' selected="selected"' : '' }}>{{ $productCategory->name }}</option>
     		@endforeach
         </select>
         <input type="submit" value="Go" />
