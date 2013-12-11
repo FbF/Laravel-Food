@@ -1,11 +1,11 @@
-<div>
+<div class="item-list item-list__recipes">
 	<ul>
 		@foreach ($recipeCategories as $recipeCategory)
-		<li>
+		<li class="item-list--item">
 			<a href="{{ $recipeCategory->getUrl() }}" title="{{ $recipeCategory->name }}">
-				{{ $recipeCategory->getMainImageResized() }}
 				<h2>{{ $recipeCategory->name }}</h2>
-				<p>{{ $recipeCategory->description }}</p>
+				{{ $recipeCategory->getMainImageResized(array('class' => 'item-list--image')) }}
+				<p class="item-list--description">{{ $recipeCategory->description }}</p>
 			</a>
 		</li>
 		@endforeach
