@@ -1,12 +1,12 @@
-<div class="product--essentials">
+<div class="essentials essentials__product">
 	<ul>
-		<li class="product--essentials--serves product--essentials--serves__{{ $product->serves }}">
+		<li class="essentials--serves essentials--serves__{{ $recipe->serves }}">
 			{{ trans('laravel-food::messages.products.details.serves', array('num' => $product->serves)) }}
 		</li>
-		<li class="product--essentials--prep-time">
+		<li class="essentials--prep-time">
 			{{ trans('laravel-food::messages.products.details.prep_time', array('num' => $product->prep_time)) }}
 		</li>
-		<li class="product--essentials--cook-time">
+		<li class="essentials--cook-time">
 			{{ trans('laravel-food::messages.products.details.cook_time', array('num' => $product->cook_time)) }}
 		</li>
 	</ul>
