@@ -43,15 +43,16 @@ class Product extends BaseModel {
 		return \URL::action('Fbf\LaravelFood\ProductsController@view', array('productCategorySlug' => $this->productCategory->slug, 'productSlug' => $this->slug));
 	}
 
-	public function getMainImage($size)
+	public function getMainImage($options = array())
 	{
 		if (empty($this->main_image))
 		{
 			return null;
 		}
-		$html = '<img src="'.\Config::get('laravel-food::images.products.main.'.$size.'.dir').$this->main_image.'"';
-		$html .= ' width="'.\Config::get('laravel-food::images.products.main.'.$size.'.width').'"';
-		$html .= ' height="'.\Config::get('laravel-food::images.products.main.'.$size.'.height').'"';
+		$html = '<img src="'.\Config::get('laravel-food::images.products.main.'.$options['size'].'.dir').$this->main_image.'"';
+		$html .= ' width="'.\Config::get('laravel-food::images.products.main.'.$options['size'].'.width').'"';
+		$html .= ' height="'.\Config::get('laravel-food::images.products.main.'.$options['size'].'.height').'"';
+		$html .= (isset($options['class'])) ? ' class="'.$options['class'].'"' : '';
 		$html .= ' alt="'.$this->name.'" />';
 		return $html;
 	}

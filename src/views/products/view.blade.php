@@ -13,7 +13,7 @@
 		</div>
 		{{ $product->description }}
 		@include ('laravel-food::partials.product_essentials')
-		{{ $product->getMainImage('resized') }}
+		{{ $product->getMainImage(array('size' => 'resized')) }}
 		@include ('laravel-food::partials.product_stockists')
 		@include ('laravel-food::partials.product_recipes')
 		@include ('laravel-food::partials.product_ingredients')
