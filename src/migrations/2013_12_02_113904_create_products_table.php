@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration {
 			$table->string('name');
 			$table->string('slug');
 			$table->string('main_image');
+			$table->text('summary');
 			$table->text('description');
 			$table->string('sizes');
 			$table->tinyInteger('serves');
