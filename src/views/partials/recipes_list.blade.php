@@ -1,11 +1,11 @@
-<div>
+<div class="item-list item-list__recipes">
 	<ul>
 		@foreach ($recipes as $recipe)
-		<li>
+		<li class="item-list--item">
 			<a href="{{ $recipe->getUrl() }}" title="{{ $recipe->name }}">
-				{{ $recipe->getMainImage('medium') }}
-				<p>{{ $recipe->name }}</p>
-				<p>{{ trans('laravel-food::messages.recipes.details.view_recipe') }}</p>
+				<h2>{{ $recipe->name }}</h2>
+				{{ $recipe->getMainImage(array('size' => 'medium', 'class' => 'item-list--image')) }}
+				<p class="item-list--description">{{ trans('laravel-food::messages.recipes.details.view_recipe') }}</p>
 			</a>
 		</li>
 		@endforeach
