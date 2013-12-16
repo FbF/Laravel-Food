@@ -1,30 +1,30 @@
-<div class="stockists stockists__table">
+<div class="stockists--table">
 	<table>
 		<thead>
 			<tr>
 				<th colspan="2"></th>
 				@foreach ($stockists as $stockist)
-					<th class="stockist stockist__{{ Str::slug($stockist->name) }}">{{ $stockist->getLogo() }}</th>
+					<th class="stockists--table__{{ Str::slug($stockist->name) }}">{{ $stockist->getLogo() }}</th>
 				@endforeach
 			</tr>
 		</thead>
 		<tbody>
 			@foreach ($productCategories as $productCategory)
 				<tr>
-					<th rowspan="{{ count($productCategory->products) + 1 }}" class="product-category-stockist-image">
+					<th rowspan="{{ count($productCategory->products) + 1 }}" class="stockists--category-image">
 						{{ $productCategory->getStockistImageOriginal() }}
 					</th>
-					<th colspan="{{ count($stockists) + 1 }}" class="product-category-name">
+					<th colspan="{{ count($stockists) + 1 }}" class="stockists--category-name">
 						{{ $productCategory->name }}
 					</th>
 				</tr>
 				@foreach ($productCategory->products as $product)
 					<tr>
-						<th class="product-name">
+						<th class="stockists--product-name">
 							{{ $product->name }}
 						</th>
 						@foreach ($stockists as $stockist)
-							<td class="product-stocked">
+							<td class="stockists--product-stocked">
 								@if ($product->stockists->contains($stockist->id))
 									Yes
 								@endif
