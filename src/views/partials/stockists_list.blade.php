@@ -1,4 +1,4 @@
-<div class="stockists stockists__list">
+<div class="stockists--list">
 	<ul>
 		@foreach ($stockists as $stockist)
 			@if (count($stockist->products) > 0)

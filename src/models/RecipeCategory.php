@@ -39,7 +39,7 @@ class RecipeCategory extends BaseModel {
 		$html .= ' width="'.\Config::get('laravel-food::images.recipe_categories.main.resized.width').'"';
 		$html .= ' height="'.\Config::get('laravel-food::images.recipe_categories.main.resized.height').'"';
 		$html .= (isset($options['class'])) ? ' class="'.$options['class'].'"' : '';
-		$html .= ' alt="'.$this->name.'"';
+		$html .= ' alt="'.$this->name.'">';
 		return $html;
 	}
 
