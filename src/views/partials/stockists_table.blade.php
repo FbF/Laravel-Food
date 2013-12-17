@@ -4,7 +4,7 @@
 			<tr>
 				<th colspan="2"></th>
 				@foreach ($stockists as $stockist)
-					<th class="stockists--table__{{ Str::slug($stockist->name) }}">{{ $stockist->getLogo() }}</th>
+					<th class="stockists--table__{{ Str::slug($stockist->name) }}">{{ $stockist->getRotatedLogo() }}</th>
 				@endforeach
 			</tr>
 		</thead>

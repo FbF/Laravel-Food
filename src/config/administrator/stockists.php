@@ -77,6 +77,22 @@ return array(
 				),
 			),
 		),
+		'rotated_logo' => array(
+			'title' => 'Rotated Logo',
+			'type' => 'image',
+			'naming' => 'random',
+			'location' => public_path() . Config::get('laravel-food::stockists.images.rotated_logo.originals.dir'),
+			'size_limit' => 5,
+			'sizes' => array(
+				array(
+					Config::get('laravel-food::stockists.images.rotated_logo.resized.width'),
+					Config::get('laravel-food::stockists.images.rotated_logo.resized.height'),
+					'crop',
+					public_path() . Config::get('laravel-food::stockists.images.rotated_logo.resized.dir'),
+					100
+				),
+			),
+		),
 		'products' => array(
 			'title' => 'Products',
 			'type' => 'relationship',

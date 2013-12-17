@@ -51,6 +51,16 @@ return array(
 				'height' => 79,
 			),
 		),
+		'rotated_logo' => array(
+			'original' => array(
+				'dir' => '/uploads/packages/fbf/laravel-food/stockists/rotated_logo/original/',
+			),
+			'resized' => array(
+				'dir' => '/uploads/packages/fbf/laravel-food/stockists/rotated_logo/resized/',
+				'width' => 79,
+				'height' => 98,
+			),
+		),
 	),
 	'recipe_categories' => array(
 		'main' => array(

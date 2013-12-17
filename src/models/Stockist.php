@@ -26,4 +26,18 @@ class Stockist extends BaseModel {
 		return $html;
 	}
 
+	public function getRotatedLogo()
+	{
+		if (empty($this->rotated_logo))
+		{
+			return $this->name;
+		}
+		$html = '<img src="'.\Config::get('laravel-food::images.stockists.rotated_logo.resized.dir').$this->rotated_logo.'"';
+		$html .= ' width="'.\Config::get('laravel-food::images.stockists.rotated_logo.resized.width').'"';
+		$html .= ' height="'.\Config::get('laravel-food::images.stockists.rotated_logo.resized.height').'"';
+		$html .= ' alt="'.$this->name.'" />';
+		return $html;
+	}
+
+
 }
