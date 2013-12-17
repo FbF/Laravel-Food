@@ -1,6 +1,6 @@
 <?php namespace Fbf\LaravelFood;
 
-class ProductsController extends \BaseController {
+class ProductsController extends BaseController {
 
 	public function view($productCategorySlug, $productSlug)
 	{

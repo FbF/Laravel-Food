@@ -1,21 +1,18 @@
 <div class="section-nav">
-    <form action="" method="post" class="section-nav--dropdown js-form-nav">
-        <select>
-            @foreach ($productCategories as $productCategory)
-    			<option value="{{ $productCategory->getUrl() }}"{{ Request::url() == $productCategory->getUrl() ? ' selected="selected"' : '' }}>{{ $productCategory->name }}</option>
-    		@endforeach
-        </select>
-        <input type="submit" value="Go" />
-    </form>
-    
+
+	{{ Form::open(array('action' => 'Fbf\LaravelFood\ProductCategoriesController@redirector', 'class' => 'section-nav--dropdown js-form-nav')) }}
+	{{ Form::select('url', array_merge(array('' => trans('laravel-food::messages.product_categories.nav.please_select')), $productCategories), Request::url()) }}
+	{{ Form::button('Go', array('class' => 'btn', 'type' => 'submit')) }}
+	{{ Form::close() }}
+
 	<ul class="section-nav--list">
-		@foreach ($productCategories as $productCategory)
-			<li{{ Request::url() == $productCategory->getUrl() ? ' class="section-nav__selected"' : '' }}>
-				@if (Request::url() == $productCategory->getUrl())
-					<span>{{ $productCategory->name }}</span>
+		@foreach ($productCategories as $productCategoryUrl => $productCategoryName)
+			<li{{ Request::url() == $productCategoryUrl ? ' class="section-nav__selected"' : '' }}>
+				@if (Request::url() == $productCategoryUrl)
+					<span>{{ $productCategoryName }}</span>
 				@else
-					<a href="{{ $productCategory->getUrl() }}" title="{{ $productCategory->name }}">
-						{{ $productCategory->name }}
+					<a href="{{ $productCategoryUrl }}" title="{{ $productCategoryName }}">
+						{{ $productCategoryName }}
 					</a>
 				@endif
 			</li>

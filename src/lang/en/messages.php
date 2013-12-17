@@ -6,6 +6,9 @@ return array(
 		'list' => array(
 			'view_products_link_text' => 'View our :product_category_name ranges',
 		),
+		'nav' => array(
+			'please_select' => 'Please select',
+		),
 	),
 
 	'products' => array(
@@ -27,6 +30,12 @@ return array(
 			'ingredients' => 'Ingredients',
 			'nutritional_info' => 'Nutritional information',
 			'nutritional_info_weight' => 'Typical values per :weight',
+		),
+	),
+
+	'recipe_categories' => array(
+		'nav' => array(
+			'please_select' => 'Please select',
 		),
 	),
 

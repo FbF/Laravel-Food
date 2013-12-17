@@ -1,6 +1,6 @@
 <?php namespace Fbf\LaravelFood;
 
-class RecipeCategoriesController extends \BaseController {
+class RecipeCategoriesController extends BaseController {
 
 	public function index()
 	{

@@ -1,12 +1,14 @@
 <?php
 
 Route::get(Config::get('laravel-food::uri.products'), 'Fbf\LaravelFood\ProductCategoriesController@index');
+Route::post(Config::get('laravel-food::uri.products'), 'Fbf\LaravelFood\ProductCategoriesController@redirector');
 
 Route::get(Config::get('laravel-food::uri.products').'/{productCategorySlug}', 'Fbf\LaravelFood\ProductCategoriesController@view');
 
 Route::get(Config::get('laravel-food::uri.products').'/{productCategorySlug}/{productSlug}', 'Fbf\LaravelFood\ProductsController@view');
 
 Route::get(Config::get('laravel-food::uri.recipes'), 'Fbf\LaravelFood\RecipeCategoriesController@index');
+Route::post(Config::get('laravel-food::uri.recipes'), 'Fbf\LaravelFood\RecipeCategoriesController@redirector');
 
 Route::get(Config::get('laravel-food::uri.recipes').'/category/{recipeCategorySlug}', 'Fbf\LaravelFood\RecipesController@indexByCategory');
 
