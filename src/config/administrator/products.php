@@ -94,12 +94,16 @@ return array(
 				),
 			),
 		),
+		'summary' => array(
+			'title' => 'Summary (The text that appears with the product entry in the when viewing a product category)',
+			'type' => 'wysiwyg',
+		),
 		'description' => array(
-			'title' => 'Description (The text that appears under the Brand Message area, and above the product listing on the Product Category detail page)',
+			'title' => 'Description (The text that appears at the top of the Product detail page)',
 			'type' => 'wysiwyg',
 		),
 		'sizes' => array(
-			'title' => 'Sizes (e.g. "190g Jar / 350g Jar")',
+			'title' => 'Sizes (e.g. "190g / 350g")',
 			'type' => 'text',
 		),
 		'serves' => array(
