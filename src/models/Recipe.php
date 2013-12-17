@@ -26,12 +26,12 @@ class Recipe extends BaseModel {
 
 	public function otherRecipe1()
 	{
-		return $this->belongsTo('Fbf\LaravelFood\Recipe', 'other_recipe_1');
+		return $this->belongsTo('Fbf\LaravelFood\Recipe', 'other_recipe_1_id');
 	}
 
 	public function otherRecipe2()
 	{
-		return $this->belongsTo('Fbf\LaravelFood\Recipe', 'other_recipe_2');
+		return $this->belongsTo('Fbf\LaravelFood\Recipe', 'other_recipe_2_id');
 	}
 
 	public function products()

@@ -5,7 +5,7 @@
 			@if ($recipe->otherRecipe1)
 			<li>
 				<a href="{{ $recipe->otherRecipe1->getUrl() }}" title="{{ $recipe->otherRecipe1->name }}">
-					{{ $recipe->otherRecipe1->getMainImage('medium') }}
+					{{ $recipe->otherRecipe1->getMainImage(array('size' => 'medium')) }}
 					<p>{{ $recipe->otherRecipe1->name }}</p>
 					<p>{{ trans('laravel-food::messages.recipes.details.view_recipe') }}</p>
 				</a>
@@ -14,7 +14,7 @@
 			@if ($recipe->otherRecipe2)
 			<li>
 				<a href="{{ $recipe->otherRecipe2->getUrl() }}" title="{{ $recipe->otherRecipe2->name }}">
-					{{ $recipe->otherRecipe2->getMainImage('medium') }}
+					{{ $recipe->otherRecipe2->getMainImage(array('size' => 'medium')) }}
 					<p>{{ $recipe->otherRecipe2->name }}</p>
 					<p>{{ trans('laravel-food::messages.recipes.details.view_recipe') }}</p>
 				</a>

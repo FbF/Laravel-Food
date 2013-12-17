@@ -5,7 +5,7 @@
 	<a href="{{ $recipe->recipeCategory->getUrl() }}">{{ trans('laravel-food::messages.recipes.details.back') }}</a>
 	<p>{{ $recipe->description }}</p>
 	@include ('laravel-food::partials.recipe_essentials')
-	{{ $recipe->getMainImage('large') }}
+	{{ $recipe->getMainImage(array('size' => 'large')) }}
 	<p class="nutritional_info">
 		{{ trans('laravel-food::messages.recipes.details.per_serving') }}
 		{{ $recipe->nutritional_info }}

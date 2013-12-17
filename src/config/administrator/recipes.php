@@ -138,14 +138,16 @@ return array(
 			'options_sort_field' => 'name',
 			'editable' => false,
 		),
-//		'otherRecipe1' => array(
-//			'title' => 'Other Recipe 1',
-//			'type' => 'relationship'
-//		),
-//		'otherRecipe2' => array(
-//			'title' => 'Other Recipe 2',
-//			'type' => 'relationship'
-//		),
+		'otherRecipe1' => array(
+			'title' => 'Other Recipe 1',
+			'type' => 'relationship',
+			'name_field' => 'name', //what column or accessor on the other table you want to use to represent this object
+		),
+		'otherRecipe2' => array(
+			'title' => 'Other Recipe 2',
+			'type' => 'relationship',
+			'name_field' => 'name', //what column or accessor on the other table you want to use to represent this object
+		),
 		'page_title' => array(
 			'title' => 'Page Title',
 			'type' => 'text',
