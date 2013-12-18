@@ -65,14 +65,14 @@ return array(
 			'title' => 'Logo',
 			'type' => 'image',
 			'naming' => 'random',
-			'location' => public_path() . Config::get('laravel-food::stockists.images.logo.originals.dir'),
+			'location' => public_path() . Config::get('laravel-food::images.stockists.logo.original.dir'),
 			'size_limit' => 5,
 			'sizes' => array(
 				array(
-					Config::get('laravel-food::stockists.images.logo.resized.width'),
-					Config::get('laravel-food::stockists.images.logo.resized.height'),
+					Config::get('laravel-food::images.stockists.logo.resized.width'),
+					Config::get('laravel-food::images.stockists.logo.resized.height'),
 					'crop',
-					public_path() . Config::get('laravel-food::stockists.images.logo.resized.dir'),
+					public_path() . Config::get('laravel-food::images.stockists.logo.resized.dir'),
 					100
 				),
 			),
@@ -81,14 +81,14 @@ return array(
 			'title' => 'Rotated Logo',
 			'type' => 'image',
 			'naming' => 'random',
-			'location' => public_path() . Config::get('laravel-food::stockists.images.rotated_logo.originals.dir'),
+			'location' => public_path() . Config::get('laravel-food::images.stockists.rotated_logo.original.dir'),
 			'size_limit' => 5,
 			'sizes' => array(
 				array(
-					Config::get('laravel-food::stockists.images.rotated_logo.resized.width'),
-					Config::get('laravel-food::stockists.images.rotated_logo.resized.height'),
+					Config::get('laravel-food::images.stockists.rotated_logo.resized.width'),
+					Config::get('laravel-food::images.stockists.rotated_logo.resized.height'),
 					'crop',
-					public_path() . Config::get('laravel-food::stockists.images.rotated_logo.resized.dir'),
+					public_path() . Config::get('laravel-food::images.stockists.rotated_logo.resized.dir'),
 					100
 				),
 			),
