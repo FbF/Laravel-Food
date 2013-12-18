@@ -95,9 +95,8 @@ return array(
 				},
 		),
 		'brand_message_heading_prefix' => array(
-			'title' => 'Brand Message Heading Prefix (The text that goes before the Product Category Name in the brand message area on the Product Category detail page)',
+			'title' => "Brand Message Heading Prefix (The text that goes before the Product Category Name in the brand message area on the Product Category detail page) (max 200 chars)",
 			'type' => 'textarea',
-			'limit' => 200,
 			'height' => 70,
 			'visible' => function($model)
 				{
@@ -105,9 +104,8 @@ return array(
 				},
 		),
 		'brand_message' => array(
-			'title' => 'Brand Message (The text that appears under the Brand Message Heading on the Product Category detail page)',
+			'title' => 'Brand Message (The text that appears under the Brand Message Heading on the Product Category detail page) (max 400 chars)',
 			'type' => 'textarea',
-			'limit' => 400,
 			'height' => 140,
 			'visible' => function($model)
 				{
@@ -196,6 +194,27 @@ return array(
 	 * @type int
 	 */
 	'form_width' => 500,
+
+	/**
+	 * The validation rules for the form, based on the Laravel validation class
+	 *
+	 * @type array
+	 */
+	'rules' => array(
+		'name' => 'required',
+		'slug' => 'alpha_dash',
+		'main_image' => 'required|image',
+		'brand_message_heading_prefix' => 'required|max:200',
+		'brand_message' => 'required|max:400',
+		'description' => 'required',
+		'order' => 'required|integer',
+		'stockist_image' => 'required|image',
+		'page_title' => '',
+		'meta_description' => '',
+		'meta_keywords' => '',
+		'status' => 'required|in:'.Fbf\LaravelFood\BaseModel::DRAFT.','.Fbf\LaravelFood\BaseModel::APPROVED,
+		'published_date' => 'required|date',
+	),
 
 	/**
 	 * The sort options for a model

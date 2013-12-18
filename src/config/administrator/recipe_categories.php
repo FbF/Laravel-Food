@@ -86,9 +86,8 @@ return array(
 			),
 		),
 		'description' => array(
-			'title' => 'Description',
+			'title' => 'Description (shown under the category name on the recipes page and as the brand message heading on the recipe index page for this category) (max 100 characters)',
 			'type' => 'textarea',
-			'limit' => 100,
 			'height' => 70,
 		),
 		'page_title' => array(
@@ -150,6 +149,24 @@ return array(
 				Fbf\LaravelFood\BaseModel::APPROVED => 'Approved',
 			),
 		),
+	),
+
+	/**
+	 * The validation rules for the form, based on the Laravel validation class
+	 *
+	 * @type array
+	 */
+	'rules' => array(
+		'name' => 'required',
+		'slug' => 'alpha_dash',
+		'main_image' => 'required|image',
+		'description' => 'required',
+		'order' => 'required|integer',
+		'page_title' => '',
+		'meta_description' => '',
+		'meta_keywords' => '',
+		'status' => 'required|in:'.Fbf\LaravelFood\BaseModel::DRAFT.','.Fbf\LaravelFood\BaseModel::APPROVED,
+		'published_date' => 'required|date',
 	),
 
 	/**

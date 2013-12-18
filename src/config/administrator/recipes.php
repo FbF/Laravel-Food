@@ -228,6 +228,32 @@ return array(
 	'form_width' => 500,
 
 	/**
+	 * The validation rules for the form, based on the Laravel validation class
+	 *
+	 * @type array
+	 */
+	'rules' => array(
+		'recipe_category_id' => 'required|integer',
+		'name' => 'required',
+		'slug' => 'alpha_dash',
+		'main_image' => 'required|image',
+		'description' => 'required',
+		'serves' => 'required|integer',
+		'prep_time' => 'required|integer',
+		'cook_time' => 'required|integer',
+		'ingredients' => 'required',
+		'nutritional_info' => 'required',
+		'method' => 'required',
+		'other_recipe_1_id' => 'integer',
+		'other_recipe_2_id' => 'integer',
+		'page_title' => '',
+		'meta_description' => '',
+		'meta_keywords' => '',
+		'status' => 'required|in:'.Fbf\LaravelFood\BaseModel::DRAFT.','.Fbf\LaravelFood\BaseModel::APPROVED,
+		'published_date' => 'required|date',
+	),
+
+	/**
 	 * The sort options for a model
 	 *
 	 * @type array

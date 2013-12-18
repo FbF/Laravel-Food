@@ -95,8 +95,8 @@ return array(
 			),
 		),
 		'summary' => array(
-			'title' => 'Summary (The text that appears with the product entry in the when viewing a product category)',
-			'type' => 'wysiwyg',
+			'title' => 'Summary (The text that appears with the product entry when viewing a product category) (max 200 characters)',
+			'type' => 'textarea',
 		),
 		'description' => array(
 			'title' => 'Description (The text that appears at the top of the Product detail page)',
@@ -234,6 +234,32 @@ return array(
 	 * @type int
 	 */
 	'form_width' => 500,
+
+	/**
+	 * The validation rules for the form, based on the Laravel validation class
+	 *
+	 * @type array
+	 */
+	'rules' => array(
+		'product_category_id' => 'required|integer',
+		'name' => 'required',
+		'slug' => 'alpha_dash',
+		'main_image' => 'required|image',
+		'summary' => 'required|max:200',
+		'description' => 'required',
+		'sizes' => 'required|max:30',
+		'serves' => 'required|integer',
+		'prep_time' => 'required|integer',
+		'cook_time' => 'required|integer',
+		'ingredients' => 'required',
+		'nutritional_info' => 'required',
+		'allergen_info' => 'max:50',
+		'page_title' => '',
+		'meta_description' => '',
+		'meta_keywords' => '',
+		'status' => 'required|in:'.Fbf\LaravelFood\BaseModel::DRAFT.','.Fbf\LaravelFood\BaseModel::APPROVED,
+		'published_date' => 'required|date',
+	),
 
 	/**
 	 * The sort options for a model

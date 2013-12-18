@@ -155,6 +155,20 @@ return array(
 	),
 
 	/**
+	 * The validation rules for the form, based on the Laravel validation class
+	 *
+	 * @type array
+	 */
+	'rules' => array(
+		'name' => 'required',
+		'order' => 'required|integer',
+		'logo' => 'required|image',
+		'rotated_logo' => 'required|image',
+		'status' => 'required|in:'.Fbf\LaravelFood\BaseModel::DRAFT.','.Fbf\LaravelFood\BaseModel::APPROVED,
+		'published_date' => 'required|date',
+	),
+
+	/**
 	 * The sort options for a model
 	 *
 	 * @type array
