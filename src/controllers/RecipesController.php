@@ -15,6 +15,7 @@ class RecipesController extends BaseController {
 			->join('fbf_food_recipe_categories', 'fbf_food_recipes.recipe_category_id', '=', 'fbf_food_recipe_categories.id')
 			->where('fbf_food_recipe_categories.slug', '=', $recipeCategorySlug)
 			->live()
+			->orderBy('fbf_food_recipes.name')
 			->paginate();
 
 		return \View::make(\Config::get('laravel-food::views.recipes.index'))->with(compact('recipeCategory', 'recipes'));
@@ -34,6 +35,7 @@ class RecipesController extends BaseController {
 			->join('fbf_food_products', 'fbf_food_product_recipe.product_id', '=', 'fbf_food_products.id')
 			->where('fbf_food_products.slug', '=', $productSlug)
 			->live()
+			->orderBy('fbf_food_recipes.name')
 			->paginate();
 
 		return \View::make(\Config::get('laravel-food::views.recipes.index'))->with(compact('product', 'recipes'));
