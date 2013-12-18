@@ -132,11 +132,10 @@ return array(
 			'type' => 'wysiwyg',
 		),
 		'products' => array(
-			'title' => 'Product',
+			'title' => 'Product  (If you pick more than one, only the first product will be shown on the recipe details page)',
 			'type' => 'relationship',
 			'name_field' => 'name',
 			'options_sort_field' => 'name',
-			'editable' => false,
 		),
 		'otherRecipe1' => array(
 			'title' => 'Other Recipe 1',
