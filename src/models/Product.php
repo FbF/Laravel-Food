@@ -60,8 +60,11 @@ class Product extends BaseModel {
 	public static function getTagCloud()
 	{
 		$products = self::join('fbf_food_product_recipe', 'fbf_food_products.id', '=', 'fbf_food_product_recipe.product_id')
+			->join('fbf_food_recipes', 'fbf_food_product_recipe.recipe_id', '=', 'fbf_food_recipes.id')
 			->select(\DB::raw('fbf_food_products.*, COUNT(fbf_food_product_recipe.recipe_id) as num_recipes'))
 			->live()
+			->where('fbf_food_recipes.status', '=', Recipe::APPROVED)
+			->where('fbf_food_recipes.published_date', '<=', \Carbon\Carbon::now())
 			->groupBy('fbf_food_products.id')
 			->orderBy('fbf_food_products.name', 'asc')
 			->get();
@@ -74,10 +77,14 @@ class Product extends BaseModel {
 		}
 		foreach ($products as $product)
 		{
+			if ($product->num_recipes == 0)
+			{
+				continue;
+			}
 			$results[] = array(
 				'name' => $product->name,
 				'url' => \URL::action('Fbf\LaravelFood\RecipesController@indexByProduct', array('productSlug' => $product->slug)),
-				'weight' => round($product->num_recipes / $maxRecipes, 1) * 10
+				'weight' => round($product->num_recipes / $maxRecipes, 1) * 10,
 			);
 		}
 		return $results;
