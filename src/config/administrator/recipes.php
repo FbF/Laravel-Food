@@ -241,7 +241,7 @@ return array(
 		'prep_time' => 'required|integer',
 		'cook_time' => 'required|integer',
 		'ingredients' => 'required',
-		'nutritional_info' => 'required',
+		'nutritional_info' => '',
 		'method' => 'required',
 		'other_recipe_1_id' => 'integer',
 		'other_recipe_2_id' => 'integer',
