@@ -30,7 +30,7 @@ class ProductsController extends BaseController {
 
 	public function stockists()
 	{
-		$productCategories = ProductCategory::with(array(
+		$productCategories = ProductCategory::live()->with(array(
 			'products.stockists' => function($query)
 				{
 					$query->live()->orderBy('order', 'asc');
