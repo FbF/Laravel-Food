@@ -31,18 +31,23 @@ class ProductsController extends BaseController {
 	public function stockists()
 	{
 		$productCategories = ProductCategory::live()->with(array(
-			'products.stockists' => function($query)
+			'products' => function($query)
 				{
-					$query->live()->orderBy('order', 'asc');
+					$query->live()->with(array(
+						'stockists' => function($query)
+							{
+								$query->live()->orderBy('order', 'asc');
+							}
+					))->orderBy('name', 'asc');
 				}
-		))->get();
+		))->orderBy('order', 'asc')->get();
 
-		$stockists = Stockist::with(array(
+		$stockists = Stockist::live()->with(array(
 			'products' => function($query)
 				{
 					$query->live()->orderBy('product_category_id', 'asc')->orderBy('name', 'asc');
 				}
-		))->live()->orderBy('order', 'asc')->get();
+		))->orderBy('order', 'asc')->get();
 
 		return \View::make(\Config::get('laravel-food::views.products.stockists'))->with(compact('productCategories', 'stockists'));
 	}
