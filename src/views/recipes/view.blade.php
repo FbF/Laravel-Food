@@ -1,5 +1,17 @@
 @extends ('layouts.master')
 
+@section('title')
+	{{ $recipe->page_title }}
+@endsection
+
+@section('meta_description')
+	{{ $recipe->meta_description }}
+@endsection
+
+@section('meta_keywords')
+	{{ $recipe->meta_keywords }}
+@endsection
+
 @section ('content')
 	<h1>{{ $recipe->name }}</h1>
 	<a href="{{ $recipe->recipeCategory->getUrl() }}">{{ trans('laravel-food::messages.recipes.details.back') }}</a>

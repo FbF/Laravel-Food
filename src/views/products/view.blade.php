@@ -1,5 +1,17 @@
 @extends ('layouts.master')
 
+@section('title')
+	{{ $product->page_title }}
+@endsection
+
+@section('meta_description')
+	{{ $product->meta_description }}
+@endsection
+
+@section('meta_keywords')
+	{{ $product->meta_keywords }}
+@endsection
+
 @section ('content')
 	<div class="product">
 		<div>
