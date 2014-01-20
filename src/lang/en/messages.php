@@ -20,6 +20,8 @@ return array(
 			'serves' => 'Serves :num.',
 			'prep_time' => ':num minutes prep time.',
 			'cook_time' => ':num minutes to cook.',
+			'teaspoon_equivalent' => '1 teaspoon = :equivalent',
+			'use_within' => 'Once opened use within :within',
 			'stockists' => 'Stockists',
 			'stockists_intro' => 'Buy your favourite Very Lazy product from the following retailers...',
 			'recipes' => 'Recipes',

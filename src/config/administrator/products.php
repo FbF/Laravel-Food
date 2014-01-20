@@ -118,6 +118,14 @@ return array(
 			'title' => 'Cook Time (minutes, e.g. 15)',
 			'type' => 'number',
 		),
+		'teaspoon_equivalent' => array(
+			'title' => 'Teaspoon Equivalent (e.g. "1 clove of garlic.")',
+			'type' => 'text',
+		),
+		'use_within' => array(
+			'title' => 'Use Withing (e.g. "1 week.")',
+			'type' => 'number',
+		),
 		'stockists' => array(
 			'title' => 'Stockists',
 			'type' => 'relationship',

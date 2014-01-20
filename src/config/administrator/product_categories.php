@@ -116,6 +116,14 @@ return array(
 			'title' => 'Description (The text that appears under the Brand Message area, and above the product listing on the Product Category detail page)',
 			'type' => 'wysiwyg',
 		),
+		'essentials_type' => array(
+			'type' => 'enum',
+			'title' => 'Production Essentials Type',
+			'options' => array(
+				Fbf\LaravelFood\ProductCategory::SERVES_PREP_COOK => 'Serves, prep time and cook time',
+				Fbf\LaravelFood\ProductCategory::TEASPOON_USE_WITHIN => 'Teaspoon equivalent and use within',
+			),
+		),
 		'stockist_image' => array(
 			'title' => 'Stockist Image (The image that represents all products in this category on the stockists page)',
 			'type' => 'image',

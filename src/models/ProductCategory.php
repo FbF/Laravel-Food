@@ -3,6 +3,12 @@
 class ProductCategory extends BaseModel {
 
 	/**
+	 * essentials_type values for the database
+	 */
+	const SERVES_PREP_COOK = 'SERVES_PREP_COOK';
+	const TEASPOON_USE_WITHIN = 'TEASPOON_USE_WITHIN';
+
+	/**
 	 * Name of the table to use for this model
 	 * @var string
 	 */
