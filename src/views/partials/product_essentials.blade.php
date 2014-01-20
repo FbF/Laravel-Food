@@ -1,6 +1,6 @@
 <div class="essentials essentials__product">
 	<ul>
-		@if ($product->productCategory->essentials_type == ProductCategory::SERVES_PREP_COOK)
+		@if ($product->productCategory->essentials_type == Fbf\LaravelFood\ProductCategory::SERVES_PREP_COOK)
 			<li class="essentials--serves essentials--serves__{{ $product->serves }}">
 				{{ trans('laravel-food::messages.products.details.serves', array('num' => $product->serves)) }}
 			</li>
